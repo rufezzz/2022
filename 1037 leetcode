@@ -1,0 +1,38 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <unordered_map>
+#include <fstream>
+#include <math.h>
+#include <algorithm>
+
+
+class Solution {
+public:
+    bool isBoomerang(std::vector<std::vector<int>>& points) {
+      
+        if(points[0]==points[1] || points[1]==points[2] || points[2]==points[0]) {
+            return false;
+        }
+        
+       
+        int f=points[0][0]*points[1][1]+points[1][0]*points[2][1]+points[2][0]*points[0][1];
+        int s=points[0][1]*points[1][0]+points[1][1]*points[2][0]+points[2][1]*points[0][0];
+        int area=abs(f-s);
+        return area!=0;
+    }
+};
+int main()
+{
+    std::vector<std::vector<int>> points = {{1,1},{2,3},{3,2}};
+
+    Solution *solution = new Solution();
+    solution->isBoomerang(points);
+
+    delete solution;
+
+    return 0;
+}
+

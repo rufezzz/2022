@@ -1,0 +1,46 @@
+#include <iostream>
+#include <vector>
+#include <map>
+#include <set>
+#include <algorithm>
+#include <unordered_map>
+#include <fstream>
+#include <math.h>
+#include <algorithm>
+
+
+class Solution 
+{
+public:
+    int firstUniqChar(std::string s)
+    {
+        std::map<char,int> mp;
+        for(int i=0;i<s.size();i++)
+        {
+            mp[s[i]]+=1;
+        }
+        for(int i=0;i<s.size();i++)
+        {
+            if(mp[s[i]]==1)
+            {
+                return i;
+            }
+        }
+        return -1;
+    
+        
+    }
+};
+
+int main()
+
+{
+    std::string s = "loveleetcode";
+
+    Solution *solution = new Solution();
+    solution->firstUniqChar(s);
+
+    delete solution;
+
+    return 0;
+}

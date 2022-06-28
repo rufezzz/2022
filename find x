@@ -1,0 +1,22 @@
+#include <fstream>
+#include <string>
+#include <iostream>
+
+int main(void)
+{
+    int n; // длина строки;
+    std::cin>>n;
+
+    std::string s;
+    std::cin>>s;
+
+    for (int i = 0; i != n; i++)
+    {
+        if(s[i] == 'x')
+        {
+            std::cout<<i+1<<' ';
+        }
+    }
+
+    return 0;
+}

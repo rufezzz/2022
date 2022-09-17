@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int maximumSwap(int num) {
+      string number = to_string(num);
+      unordered_map<int,int>m;
+      
+      for(int i = 0 ; i < number.size(); i++)
+      {
+        m[number[i] - '0']= i;
+      }
+      
+      for(int i = 0 ; i < number.size(); i++)
+      {
+        for(int x = 9; x >= 1; x--)  // Fixed loop from 9 to 1
+        {
+          if( x > number[i] - '0' && m.find(x) != m.end() && m[x] > i)
+          {
+            swap(number[i] , number[m[x]]);
+            return stoi(number);
+          }
+        }
+      }
+      
+      return stoi(number);
+    }
+};

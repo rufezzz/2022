@@ -1,0 +1,20 @@
+bool isHappy(int n) {
+        map<int,int>m ;
+        long long int sum = n;
+        m[n]++;
+        while(1){
+            n = sum; 
+            sum = 0;
+            while(n!=0){
+                int tmp = n%10;
+                sum += (tmp*tmp);
+                n /= 10;
+            }
+            
+            
+            if(sum==1) 
+                return true;
+            if(m[sum]>0)
+                return false;
+            m[sum]++;
+}
